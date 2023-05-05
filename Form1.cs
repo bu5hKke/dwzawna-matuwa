@@ -14,9 +14,12 @@ namespace WinFormsApp4 {
     {
         Dictionary<string, Template> templates = new Dictionary<string, Template>();
         Template proba;
-        public Form1()
-        {
+        public Form1() {
             InitializeComponent();
+            foreach ( TextBox t in tabPage1.Controls.OfType<TextBox>()) {
+                t.Text = t.Name;
+                t.ForeColor = Color.Gray;
+            }
         }
 
         private void loadTemplateFileToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -129,6 +132,23 @@ namespace WinFormsApp4 {
 
         private void tabPage1_DragEnter(object sender, DragEventArgs e){
             e.Effect = DragDropEffects.Move;
+        }
+
+        private void placeholderTextEn(object sender, EventArgs e) {
+            TextBox textBox = (TextBox)sender;
+            if ( textBox.ForeColor == Color.Gray ) {
+                textBox.Clear();
+                textBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void placeholderTextLe(object sender, EventArgs e) {
+            TextBox textBox = (TextBox)sender;
+            if ( textBox.Text == "" ) {
+                textBox.Text = textBox.Name;
+                textBox.ForeColor = Color.Gray;
+
+            }
         }
     }
 }

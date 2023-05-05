@@ -47,10 +47,11 @@ namespace WinFormsApp4
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.Ime = new System.Windows.Forms.TextBox();
             this.TreciPredmet = new System.Windows.Forms.TextBox();
+            this.Ime = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -70,6 +71,8 @@ namespace WinFormsApp4
             this.DrugiPredmet.Name = "DrugiPredmet";
             this.DrugiPredmet.Size = new System.Drawing.Size(452, 23);
             this.DrugiPredmet.TabIndex = 1;
+            this.DrugiPredmet.Enter += new System.EventHandler(this.placeholderTextEn);
+            this.DrugiPredmet.Leave += new System.EventHandler(this.placeholderTextLe);
             // 
             // PrviPredmet
             // 
@@ -77,6 +80,8 @@ namespace WinFormsApp4
             this.PrviPredmet.Name = "PrviPredmet";
             this.PrviPredmet.Size = new System.Drawing.Size(452, 23);
             this.PrviPredmet.TabIndex = 1;
+            this.PrviPredmet.Enter += new System.EventHandler(this.placeholderTextEn);
+            this.PrviPredmet.Leave += new System.EventHandler(this.placeholderTextLe);
             // 
             // Jezik
             // 
@@ -84,6 +89,8 @@ namespace WinFormsApp4
             this.Jezik.Name = "Jezik";
             this.Jezik.Size = new System.Drawing.Size(452, 23);
             this.Jezik.TabIndex = 1;
+            this.Jezik.Enter += new System.EventHandler(this.placeholderTextEn);
+            this.Jezik.Leave += new System.EventHandler(this.placeholderTextLe);
             // 
             // Smer
             // 
@@ -91,6 +98,8 @@ namespace WinFormsApp4
             this.Smer.Name = "Smer";
             this.Smer.Size = new System.Drawing.Size(452, 23);
             this.Smer.TabIndex = 1;
+            this.Smer.Enter += new System.EventHandler(this.placeholderTextEn);
+            this.Smer.Leave += new System.EventHandler(this.placeholderTextLe);
             // 
             // Odeljenje
             // 
@@ -98,6 +107,8 @@ namespace WinFormsApp4
             this.Odeljenje.Name = "Odeljenje";
             this.Odeljenje.Size = new System.Drawing.Size(452, 23);
             this.Odeljenje.TabIndex = 1;
+            this.Odeljenje.Enter += new System.EventHandler(this.placeholderTextEn);
+            this.Odeljenje.Leave += new System.EventHandler(this.placeholderTextLe);
             // 
             // Skola
             // 
@@ -105,6 +116,8 @@ namespace WinFormsApp4
             this.Skola.Name = "Skola";
             this.Skola.Size = new System.Drawing.Size(452, 23);
             this.Skola.TabIndex = 1;
+            this.Skola.Enter += new System.EventHandler(this.placeholderTextEn);
+            this.Skola.Leave += new System.EventHandler(this.placeholderTextLe);
             // 
             // comboBox1
             // 
@@ -142,13 +155,13 @@ namespace WinFormsApp4
             this.loadTemplateFileToolStripMenuItem,
             this.saveTemplateToolStripMenuItem});
             this.templateToolStripMenuItem.Name = "templateToolStripMenuItem";
-            this.templateToolStripMenuItem.Size = new System.Drawing.Size(69, 18);
+            this.templateToolStripMenuItem.Size = new System.Drawing.Size(67, 18);
             this.templateToolStripMenuItem.Text = "Template";
             // 
             // loadTemplateFileToolStripMenuItem
             // 
             this.loadTemplateFileToolStripMenuItem.Name = "loadTemplateFileToolStripMenuItem";
-            this.loadTemplateFileToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.loadTemplateFileToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.loadTemplateFileToolStripMenuItem.Text = "Load Template File";
             this.loadTemplateFileToolStripMenuItem.Click += new System.EventHandler(this.loadTemplateFileToolStripMenuItem_Click);
             // 
@@ -158,20 +171,20 @@ namespace WinFormsApp4
             this.newFileToolStripMenuItem,
             this.existingFileToolStripMenuItem});
             this.saveTemplateToolStripMenuItem.Name = "saveTemplateToolStripMenuItem";
-            this.saveTemplateToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.saveTemplateToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.saveTemplateToolStripMenuItem.Text = "Save Template";
             // 
             // newFileToolStripMenuItem
             // 
             this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
-            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.newFileToolStripMenuItem.Text = "New File";
             this.newFileToolStripMenuItem.Click += new System.EventHandler(this.newFileToolStripMenuItem_Click);
             // 
             // existingFileToolStripMenuItem
             // 
             this.existingFileToolStripMenuItem.Name = "existingFileToolStripMenuItem";
-            this.existingFileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.existingFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.existingFileToolStripMenuItem.Text = "Existing File";
             this.existingFileToolStripMenuItem.Click += new System.EventHandler(this.existingFileToolStripMenuItem_Click);
             // 
@@ -197,6 +210,7 @@ namespace WinFormsApp4
             // tabPage1
             // 
             this.tabPage1.AllowDrop = true;
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.TreciPredmet);
             this.tabPage1.Controls.Add(this.Ime);
             this.tabPage1.Controls.Add(this.PrezIme);
@@ -217,6 +231,22 @@ namespace WinFormsApp4
             this.tabPage1.DragDrop += new System.Windows.Forms.DragEventHandler(this.tabPage1_DragDrop);
             this.tabPage1.DragEnter += new System.Windows.Forms.DragEventHandler(this.tabPage1_DragEnter);
             // 
+            // TreciPredmet
+            // 
+            this.TreciPredmet.Location = new System.Drawing.Point(17, 224);
+            this.TreciPredmet.Name = "TreciPredmet";
+            this.TreciPredmet.Size = new System.Drawing.Size(452, 23);
+            this.TreciPredmet.TabIndex = 1;
+            this.TreciPredmet.Enter += new System.EventHandler(this.placeholderTextEn);
+            this.TreciPredmet.Leave += new System.EventHandler(this.placeholderTextLe);
+            // 
+            // Ime
+            // 
+            this.Ime.Location = new System.Drawing.Point(17, 293);
+            this.Ime.Name = "Ime";
+            this.Ime.Size = new System.Drawing.Size(452, 23);
+            this.Ime.TabIndex = 1;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.checkedListBox1);
@@ -228,20 +258,6 @@ namespace WinFormsApp4
             this.tabPage2.Text = "Spisak ucenika";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // Ime
-            // 
-            this.Ime.Location = new System.Drawing.Point(17, 293);
-            this.Ime.Name = "Ime";
-            this.Ime.Size = new System.Drawing.Size(452, 23);
-            this.Ime.TabIndex = 1;
-            // 
-            // TreciPredmet
-            // 
-            this.TreciPredmet.Location = new System.Drawing.Point(17, 224);
-            this.TreciPredmet.Name = "TreciPredmet";
-            this.TreciPredmet.Size = new System.Drawing.Size(452, 23);
-            this.TreciPredmet.TabIndex = 1;
-            // 
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
@@ -250,12 +266,21 @@ namespace WinFormsApp4
             this.checkedListBox1.Size = new System.Drawing.Size(479, 418);
             this.checkedListBox1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(365, 379);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Dodaj";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 518);
+            this.ClientSize = new System.Drawing.Size(521, 517);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -303,6 +328,7 @@ namespace WinFormsApp4
         private System.Windows.Forms.TextBox TreciPredmet;
         private System.Windows.Forms.TextBox Ime;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
