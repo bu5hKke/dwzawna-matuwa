@@ -44,14 +44,20 @@ namespace WinFormsApp4 {
         private void inputFromTemplate( Template t ) {
             if ( t == null ) return;
 
-
-            textBox1.Text = t.attr[0];
-            textBox2.Text = t.attr[1];
-            textBox3.Text = t.attr[2];
-            textBox4.Text = t.attr[3];
-            textBox5.Text = t.attr[4];
-            textBox6.Text = t.attr[5];
-            textBox7.Text = t.attr[6];
+            Skola.Text = t.attr[0];
+            Skola.ForeColor = Color.Black;
+            Odeljenje.Text = t.attr[1];
+            Odeljenje.ForeColor = Color.Black;
+            Smer.Text = t.attr[2];
+            Smer.ForeColor = Color.Black;
+            Jezik.Text = t.attr[3];
+            Jezik.ForeColor = Color.Black;
+            PrviPredmet.Text = t.attr[4];
+            PrviPredmet.ForeColor = Color.Black;
+            DrugiPredmet.Text = t.attr[5];
+            DrugiPredmet.ForeColor = Color.Black;
+            TreciPredmet.Text = t.attr[6];
+            TreciPredmet.ForeColor = Color.Black;
 
 
         }
@@ -63,13 +69,13 @@ namespace WinFormsApp4 {
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e) {
             string saved = comboBox1.Text + ";";
 
-            saved += textBox1.Text + ";";
-            saved += textBox2.Text + ";";
-            saved += textBox3.Text + ";";
-            saved += textBox4.Text + ";";
-            saved += textBox5.Text + ";";
-            saved += textBox6.Text + ";";
-            saved += textBox7.Text + ";";
+            saved += Skola.Text + ";";
+            saved += Odeljenje.Text + ";";
+            saved += Smer.Text + ";";
+            saved += Jezik.Text + ";";
+            saved += PrviPredmet.Text + ";";
+            saved += DrugiPredmet.Text + ";";
+            saved += TreciPredmet.Text + ";";
 
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Filter = "Comma Separated Values (*.csv)|*.csv";
@@ -149,6 +155,16 @@ namespace WinFormsApp4 {
                 textBox.ForeColor = Color.Gray;
 
             }
+        }
+
+        private void Odeljenje_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Skola_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
