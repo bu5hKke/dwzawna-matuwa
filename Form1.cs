@@ -15,6 +15,7 @@ namespace WinFormsApp4 {
 
         Dictionary<string, Template> templates = new Dictionary<string, Template>();
         Template proba;
+        int? activeRow;
 
         public Form1() {
             InitializeComponent();
@@ -28,6 +29,10 @@ namespace WinFormsApp4 {
             PrviPredmet.Items.AddRange(predmeti.jezici.ToArray());
             DrugiPredmet.Items.Add("Matematika");
             comboBox2.Enabled = false;
+
+            button2.Enabled = false;
+            button3.Enabled = false;
+            activeRow = null;
         }
 
         private void loadTemplateFileToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -200,6 +205,78 @@ namespace WinFormsApp4 {
             TreciPredmet.Items.Clear();
             TreciPredmet.Text = "";
             TreciPredmet.Items.AddRange(predmeti.strucni[comboBox2.SelectedItem.ToString()].ToArray());
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            if ( PrviPredmet.Text == "Srpski jezik i književnost" && TreciPredmet.Text == "Srpski kao nematernji jezik" ) {
+                MessageBox.Show("Ne moze se dva puta polagati isti predmet.");
+                return;
+            }
+
+            foreach ( TextBox t in this.Controls.OfType<TextBox>() ) {
+                if ( t.ForeColor == Color.Gray ) return;
+            }
+
+            string[] uce = new string[] {
+                this.Ime.Text,
+                this.PrezIme.Text,
+                this.Skola.Text,
+                this.PrviPredmet.Text,
+                this.DrugiPredmet.Text,
+                this.TreciPredmet.Text,
+            };
+
+            this.dataGridView1.Rows.Add(uce);
+            
+                
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e) {
+            activeRow = e.RowIndex;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            Ime.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[0].Value;
+            PrezIme.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[1].Value;
+            Skola.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[2].Value;
+            PrviPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[3].Value;
+            DrugiPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[4].Value;
+            TreciPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[5].Value;
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            if ( activeRow == null ) {
+                MessageBox.Show("Nije izabran nijedan učenik.");
+                button2.Enabled = false;
+                button3.Enabled = false;
+                return;
+            }
+
+            string[] uce = new string[] {
+                this.Ime.Text,
+                this.PrezIme.Text,
+                this.Skola.Text,
+                this.PrviPredmet.Text,
+                this.DrugiPredmet.Text,
+                this.TreciPredmet.Text,
+            };
+
+            dataGridView1.Rows[(int)activeRow].SetValues(uce);
+            button2.Enabled = false;
+            button3.Enabled = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            if (activeRow == null) {
+                MessageBox.Show("Nije izabran nijedan učenik.");
+                button2.Enabled = false;
+                button3.Enabled = false;
+                return;
+            }
+
+
+            dataGridView1.Rows.RemoveAt((int)activeRow);
+            button2.Enabled = false;
+            button3.Enabled = false;
         }
     }
 }
