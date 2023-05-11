@@ -29,6 +29,7 @@ namespace WinFormsApp4
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.PrezIme = new System.Windows.Forms.TextBox();
             this.Odeljenje = new System.Windows.Forms.TextBox();
             this.Skola = new System.Windows.Forms.TextBox();
@@ -41,31 +42,29 @@ namespace WinFormsApp4
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.existingFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.TreciPredmet = new System.Windows.Forms.ComboBox();
             this.PrviPredmet = new System.Windows.Forms.ComboBox();
             this.DrugiPredmet = new System.Windows.Forms.ComboBox();
             this.Jezik = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.Smer = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.Ime = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PrezIme
             // 
-            this.PrezIme.Location = new System.Drawing.Point(17, 322);
+            this.PrezIme.Location = new System.Drawing.Point(544, 442);
             this.PrezIme.Name = "PrezIme";
             this.PrezIme.Size = new System.Drawing.Size(452, 23);
             this.PrezIme.TabIndex = 1;
@@ -74,7 +73,7 @@ namespace WinFormsApp4
             // 
             // Odeljenje
             // 
-            this.Odeljenje.Location = new System.Drawing.Point(402, 79);
+            this.Odeljenje.Location = new System.Drawing.Point(929, 196);
             this.Odeljenje.Name = "Odeljenje";
             this.Odeljenje.Size = new System.Drawing.Size(67, 23);
             this.Odeljenje.TabIndex = 1;
@@ -83,7 +82,7 @@ namespace WinFormsApp4
             // 
             // Skola
             // 
-            this.Skola.Location = new System.Drawing.Point(17, 79);
+            this.Skola.Location = new System.Drawing.Point(544, 196);
             this.Skola.Name = "Skola";
             this.Skola.Size = new System.Drawing.Size(379, 23);
             this.Skola.TabIndex = 1;
@@ -95,7 +94,7 @@ namespace WinFormsApp4
             this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(17, 32);
+            this.comboBox1.Location = new System.Drawing.Point(544, 149);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(216, 23);
             this.comboBox1.TabIndex = 0;
@@ -110,7 +109,7 @@ namespace WinFormsApp4
             this.clearToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(521, 22);
+            this.menuStrip1.Size = new System.Drawing.Size(1008, 22);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -166,51 +165,55 @@ namespace WinFormsApp4
             this.clearToolStripMenuItem.Text = "Clear";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
-            // tabControl1
+            // label5
             // 
-            this.tabControl1.AllowDrop = true;
-            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 25);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(497, 477);
-            this.tabControl1.TabIndex = 2;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(544, 344);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 15);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Predmet 3";
             // 
-            // tabPage1
+            // label4
             // 
-            this.tabPage1.AllowDrop = true;
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.TreciPredmet);
-            this.tabPage1.Controls.Add(this.PrviPredmet);
-            this.tabPage1.Controls.Add(this.DrugiPredmet);
-            this.tabPage1.Controls.Add(this.Jezik);
-            this.tabPage1.Controls.Add(this.Smer);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.Ime);
-            this.tabPage1.Controls.Add(this.PrezIme);
-            this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.Skola);
-            this.tabPage1.Controls.Add(this.Odeljenje);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(489, 446);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Unos informacija";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.DragDrop += new System.Windows.Forms.DragEventHandler(this.tabPage1_DragDrop);
-            this.tabPage1.DragEnter += new System.Windows.Forms.DragEventHandler(this.tabPage1_DragEnter);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(544, 315);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 15);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Predmet 2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(544, 286);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 15);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Predmet 1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(544, 257);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 15);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Jezik";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(544, 228);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Smer";
             // 
             // TreciPredmet
             // 
             this.TreciPredmet.FormattingEnabled = true;
-            this.TreciPredmet.Location = new System.Drawing.Point(89, 224);
+            this.TreciPredmet.Location = new System.Drawing.Point(616, 341);
             this.TreciPredmet.Name = "TreciPredmet";
             this.TreciPredmet.Size = new System.Drawing.Size(380, 23);
             this.TreciPredmet.TabIndex = 4;
@@ -218,7 +221,7 @@ namespace WinFormsApp4
             // PrviPredmet
             // 
             this.PrviPredmet.FormattingEnabled = true;
-            this.PrviPredmet.Location = new System.Drawing.Point(89, 166);
+            this.PrviPredmet.Location = new System.Drawing.Point(616, 283);
             this.PrviPredmet.Name = "PrviPredmet";
             this.PrviPredmet.Size = new System.Drawing.Size(380, 23);
             this.PrviPredmet.TabIndex = 4;
@@ -226,7 +229,7 @@ namespace WinFormsApp4
             // DrugiPredmet
             // 
             this.DrugiPredmet.FormattingEnabled = true;
-            this.DrugiPredmet.Location = new System.Drawing.Point(89, 195);
+            this.DrugiPredmet.Location = new System.Drawing.Point(616, 312);
             this.DrugiPredmet.Name = "DrugiPredmet";
             this.DrugiPredmet.Size = new System.Drawing.Size(380, 23);
             this.DrugiPredmet.TabIndex = 4;
@@ -234,22 +237,32 @@ namespace WinFormsApp4
             // Jezik
             // 
             this.Jezik.FormattingEnabled = true;
-            this.Jezik.Location = new System.Drawing.Point(89, 137);
+            this.Jezik.Location = new System.Drawing.Point(616, 254);
             this.Jezik.Name = "Jezik";
             this.Jezik.Size = new System.Drawing.Size(380, 23);
             this.Jezik.TabIndex = 4;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(766, 225);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(230, 23);
+            this.comboBox2.TabIndex = 3;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
             // Smer
             // 
             this.Smer.FormattingEnabled = true;
-            this.Smer.Location = new System.Drawing.Point(89, 108);
+            this.Smer.Location = new System.Drawing.Point(616, 225);
             this.Smer.Name = "Smer";
-            this.Smer.Size = new System.Drawing.Size(380, 23);
+            this.Smer.Size = new System.Drawing.Size(144, 23);
             this.Smer.TabIndex = 3;
+            this.Smer.SelectedIndexChanged += new System.EventHandler(this.Smer_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(365, 379);
+            this.button1.Location = new System.Drawing.Point(892, 482);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 23);
             this.button1.TabIndex = 2;
@@ -258,97 +271,72 @@ namespace WinFormsApp4
             // 
             // Ime
             // 
-            this.Ime.Location = new System.Drawing.Point(17, 293);
+            this.Ime.Location = new System.Drawing.Point(544, 413);
             this.Ime.Name = "Ime";
             this.Ime.Size = new System.Drawing.Size(452, 23);
             this.Ime.TabIndex = 1;
             this.Ime.Enter += new System.EventHandler(this.placeholderTextEn);
             this.Ime.Leave += new System.EventHandler(this.placeholderTextLe);
             // 
-            // tabPage2
+            // dataGridView1
             // 
-            this.tabPage2.Controls.Add(this.checkedListBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(489, 446);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Spisak ucenika";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 25);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(517, 480);
+            this.dataGridView1.TabIndex = 6;
             // 
-            // checkedListBox1
+            // pictureBox1
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(4, 5);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(479, 418);
-            this.checkedListBox1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 111);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 15);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Smer";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 140);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Jezik";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 169);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Predmet 1";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 198);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 15);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Predmet 2";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 227);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 15);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Predmet 3";
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::WinFormsApp4.Properties.Resources.komtreid;
+            this.pictureBox1.Location = new System.Drawing.Point(544, 36);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(452, 98);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 517);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(1008, 517);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Odeljenje);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Skola);
+            this.Controls.Add(this.TreciPredmet);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.PrviPredmet);
+            this.Controls.Add(this.PrezIme);
+            this.Controls.Add(this.DrugiPredmet);
+            this.Controls.Add(this.Ime);
+            this.Controls.Add(this.Jezik);
+            this.Controls.Add(this.Smer);
+            this.Controls.Add(this.comboBox2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(537, 556);
+            this.MaximumSize = new System.Drawing.Size(1024, 556);
             this.MinimumSize = new System.Drawing.Size(537, 556);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
+            this.Text = "Comtrade™ DrzavnaMatura-inator™ 2023";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -369,14 +357,10 @@ namespace WinFormsApp4
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox PrezIme;
         private System.Windows.Forms.TextBox Odeljenje;
         private System.Windows.Forms.TextBox Skola;
         private System.Windows.Forms.TextBox Ime;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox TreciPredmet;
         private System.Windows.Forms.ComboBox PrviPredmet;
@@ -388,6 +372,9 @@ namespace WinFormsApp4
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

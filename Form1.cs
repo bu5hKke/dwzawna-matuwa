@@ -10,16 +10,24 @@ using System.Windows.Forms;
 using System.IO;
 
 namespace WinFormsApp4 {
-    public partial class Form1 : Form
-    {
+    public partial class Form1 : Form {
+
+
         Dictionary<string, Template> templates = new Dictionary<string, Template>();
         Template proba;
+
         public Form1() {
             InitializeComponent();
-            foreach ( TextBox t in tabPage1.Controls.OfType<TextBox>()) {
+            foreach (TextBox t in this.Controls.OfType<TextBox>()) {
                 t.Text = t.Name;
                 t.ForeColor = Color.Gray;
             }
+            Jezik.Items.AddRange(predmeti.jezici.ToArray());
+            Smer.Items.AddRange(new string[] {"Opšti", "Stručni", "Umetnički"});
+            comboBox2.Items.AddRange(predmeti.strucni.Keys.ToArray());
+            PrviPredmet.Items.AddRange(predmeti.jezici.ToArray());
+            DrugiPredmet.Items.Add("Matematika");
+            comboBox2.Enabled = false;
         }
 
         private void loadTemplateFileToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -37,7 +45,7 @@ namespace WinFormsApp4 {
 
 
             comboBox1.Items.AddRange(templates.Keys.ToArray());
-
+            
 
         }
 
@@ -112,7 +120,7 @@ namespace WinFormsApp4 {
             comboBox1.Text = "";
             comboBox1.Refresh();
             templates.Clear();
-            foreach ( TextBox t in tabPage1.Controls.OfType<TextBox>() ) {
+            foreach ( TextBox t in this.Controls.OfType<TextBox>() ) {
                 t.Clear();
             }
         }
@@ -165,6 +173,33 @@ namespace WinFormsApp4 {
         private void Skola_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Smer_SelectedIndexChanged(object sender, EventArgs e) {
+            comboBox2.Enabled = false;
+            TreciPredmet.Items.Clear();
+            TreciPredmet.Text = "";
+            switch ( Smer.SelectedItem ) {
+                case "Opšti":
+                    TreciPredmet.Items.AddRange(predmeti.opsta.ToArray());
+                    break;
+                case "Umetnički":
+                    TreciPredmet.Items.AddRange(predmeti.umetnicka.ToArray());
+                    break;
+                case "Stručni":
+                    comboBox2.Enabled = true;
+                    if ( comboBox2.Text != "" )
+                        TreciPredmet.Items.AddRange(predmeti.strucni[comboBox2.SelectedItem.ToString()].ToArray());
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) {
+            TreciPredmet.Items.Clear();
+            TreciPredmet.Text = "";
+            TreciPredmet.Items.AddRange(predmeti.strucni[comboBox2.SelectedItem.ToString()].ToArray());
         }
     }
 }
