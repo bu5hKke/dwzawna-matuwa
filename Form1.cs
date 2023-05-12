@@ -97,6 +97,7 @@ namespace WinFormsApp4 {
             writer.WriteLine(saved);
             writer.Close();
 
+            comboBox2.SelectedValue = "";
 
         }
 
@@ -126,7 +127,11 @@ namespace WinFormsApp4 {
             comboBox1.Refresh();
             templates.Clear();
             foreach ( TextBox t in this.Controls.OfType<TextBox>() ) {
-                t.Clear();
+                if ( t.ForeColor != Color.Gray ) {
+                    t.Text = t.Name;
+                    t.ForeColor = Color.Gray;
+                }
+                
             }
         }
 
@@ -220,7 +225,9 @@ namespace WinFormsApp4 {
             string[] uce = new string[] {
                 this.Ime.Text,
                 this.PrezIme.Text,
+                this.Odeljenje.Text,
                 this.Skola.Text,
+                this.Jezik.Text,
                 this.PrviPredmet.Text,
                 this.DrugiPredmet.Text,
                 this.TreciPredmet.Text,
@@ -236,11 +243,21 @@ namespace WinFormsApp4 {
             button2.Enabled = true;
             button3.Enabled = true;
             Ime.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[0].Value;
+            Ime.ForeColor = Color.Black;
             PrezIme.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[1].Value;
-            Skola.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[2].Value;
-            PrviPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[3].Value;
-            DrugiPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[4].Value;
-            TreciPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[5].Value;
+            PrezIme.ForeColor = Color.Black;
+            Odeljenje.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[2].Value;
+            Odeljenje.ForeColor = Color.Black;
+            Skola.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[3].Value;
+            Skola.ForeColor = Color.Black;
+            Jezik.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[4].Value;
+            Jezik.ForeColor = Color.Black;
+            PrviPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[5].Value;
+            PrviPredmet.ForeColor = Color.Black;
+            DrugiPredmet.ForeColor = Color.Black;
+            DrugiPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[6].Value;
+            TreciPredmet.ForeColor = Color.Black;
+            TreciPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[7].Value;
         }
 
         private void button2_Click(object sender, EventArgs e) {
@@ -254,7 +271,9 @@ namespace WinFormsApp4 {
             string[] uce = new string[] {
                 this.Ime.Text,
                 this.PrezIme.Text,
+                this.Odeljenje.Text,
                 this.Skola.Text,
+                this.Jezik.Text,
                 this.PrviPredmet.Text,
                 this.DrugiPredmet.Text,
                 this.TreciPredmet.Text,
@@ -277,6 +296,29 @@ namespace WinFormsApp4 {
             dataGridView1.Rows.RemoveAt((int)activeRow);
             button2.Enabled = false;
             button3.Enabled = false;
+        }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e) {
+            //napravi ovo kasnije
+        }
+
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e) {
+            
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Comma Separated Values (*.csv)|*.csv";
+            dialog.ShowDialog();
+            StreamWriter writer = new StreamWriter(dialog.OpenFile());
+            foreach ( DataGridViewRow row in dataGridView1.Rows ) {
+                string saved = "";
+                foreach ( DataGridViewCell s in row.Cells ) {
+                    saved += s.Value + ";";
+                }
+                writer.WriteLine(saved);
+            }
+            writer.Close();
+
+
         }
     }
 }
