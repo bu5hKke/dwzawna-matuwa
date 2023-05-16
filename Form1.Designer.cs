@@ -70,6 +70,7 @@ namespace WinFormsApp4
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -223,6 +224,7 @@ namespace WinFormsApp4
             this.resetujTabeluToolStripMenuItem.Name = "resetujTabeluToolStripMenuItem";
             this.resetujTabeluToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.resetujTabeluToolStripMenuItem.Text = "Resetuj tabelu";
+            this.resetujTabeluToolStripMenuItem.Click += new System.EventHandler(this.resetujTabeluToolStripMenuItem_Click);
             // 
             // resetujSabloneToolStripMenuItem
             // 
@@ -234,7 +236,7 @@ namespace WinFormsApp4
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Lime;
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.Location = new System.Drawing.Point(544, 344);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 15);
@@ -244,7 +246,7 @@ namespace WinFormsApp4
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Lime;
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(544, 315);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 15);
@@ -254,7 +256,7 @@ namespace WinFormsApp4
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Lime;
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(544, 286);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 15);
@@ -264,7 +266,7 @@ namespace WinFormsApp4
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Lime;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(544, 257);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 15);
@@ -274,7 +276,7 @@ namespace WinFormsApp4
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Lime;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(544, 228);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 15);
@@ -333,7 +335,7 @@ namespace WinFormsApp4
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.IndianRed;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(892, 482);
             this.button1.Name = "button1";
@@ -376,7 +378,8 @@ namespace WinFormsApp4
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17});
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18});
             this.dataGridView1.Location = new System.Drawing.Point(12, 36);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -417,21 +420,27 @@ namespace WinFormsApp4
             // 
             // dataGridViewTextBoxColumn15
             // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "Prvi Predmet";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Smer";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn16
             // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "Drugi Predmet";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Prvi Predmet";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn17
             // 
-            this.dataGridViewTextBoxColumn17.HeaderText = "Treci Predmet";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Drugi Predmet";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "Treci Predmet";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // pictureBox1
             // 
@@ -495,7 +504,7 @@ namespace WinFormsApp4
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.IndianRed;
+            this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(782, 482);
             this.button2.Name = "button2";
@@ -507,7 +516,7 @@ namespace WinFormsApp4
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.IndianRed;
+            this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(672, 482);
             this.button3.Name = "button3";
@@ -516,10 +525,12 @@ namespace WinFormsApp4
             this.button3.Text = "Izbriši";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseEnter += new System.EventHandler(this.button3_MouseHover);
+            this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.IndianRed;
+            this.button4.BackColor = System.Drawing.Color.Transparent;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Location = new System.Drawing.Point(766, 148);
             this.button4.Name = "button4";
@@ -534,7 +545,7 @@ namespace WinFormsApp4
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkRed;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1008, 517);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox1);
@@ -559,6 +570,7 @@ namespace WinFormsApp4
             this.Controls.Add(this.Jezik);
             this.Controls.Add(this.Smer);
             this.Controls.Add(this.comboBox2);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(1024, 556);
@@ -636,6 +648,7 @@ namespace WinFormsApp4
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
     }
 }
 

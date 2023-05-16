@@ -62,7 +62,7 @@ namespace WinFormsApp4 {
 
             comboBox1.Items.AddRange(templates.Keys.ToArray());
 
-            
+            MessageBox.Show("Šabloni su učitani.");
 
         }
 
@@ -104,6 +104,8 @@ namespace WinFormsApp4 {
             } catch {}
             comboBox2.SelectedValue = "";
 
+            MessageBox.Show("Šabloni su sačuvani.");
+
         }
 
         private void existingFileToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -118,7 +120,9 @@ namespace WinFormsApp4 {
                 }
                 writer.Close();
             } catch {}
-            
+
+            MessageBox.Show("Šabloni su sačuvani.");
+
         }
 
         private void clearToolStripMenuItem_Click(object sender, EventArgs e) {           
@@ -132,6 +136,7 @@ namespace WinFormsApp4 {
             foreach ( ComboBox cb in this.Controls.OfType<ComboBox>() ) {
                 cb.Text = "";
             }
+            comboBox2.Enabled = false;
         }
 
         private void tabPage1_DragDrop(object sender, DragEventArgs e) {
@@ -218,7 +223,7 @@ namespace WinFormsApp4 {
             }
 
             foreach ( TextBox t in this.Controls.OfType<TextBox>() ) {
-                if ( t.ForeColor == Color.Gray ) {
+                if ( t.ForeColor == Color.Gray || t.Text == "" ) {
                     MessageBox.Show("Polje " + t.Name + " je ostalo prazno.");
                     return;
                 }
@@ -238,6 +243,7 @@ namespace WinFormsApp4 {
                 this.Odeljenje.Text,
                 this.Škola.Text,
                 this.Jezik.Text,
+                this.Smer.Text,
                 this.PrviPredmet.Text,
                 this.DrugiPredmet.Text,
                 this.TreciPredmet.Text,
@@ -262,12 +268,14 @@ namespace WinFormsApp4 {
             Škola.ForeColor = Color.Black;
             Jezik.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[4].Value;
             Jezik.ForeColor = Color.Black;
-            PrviPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[5].Value;
+            Smer.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[5].Value;
+            Smer.ForeColor = Color.Black;
+            PrviPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[6].Value;
             PrviPredmet.ForeColor = Color.Black;
             DrugiPredmet.ForeColor = Color.Black;
-            DrugiPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[6].Value;
+            DrugiPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[7].Value;
             TreciPredmet.ForeColor = Color.Black;
-            TreciPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[7].Value;
+            TreciPredmet.Text = (string)dataGridView1.Rows[(int)activeRow].Cells[8].Value;
         }
 
         private void button2_Click(object sender, EventArgs e) {
@@ -278,12 +286,28 @@ namespace WinFormsApp4 {
                 return;
             }
 
+            foreach ( TextBox t in this.Controls.OfType<TextBox>() ) {
+                if ( t.ForeColor == Color.Gray || t.Text == "" ) {
+                    MessageBox.Show("Polje " + t.Name + " je ostalo prazno.");
+                    return;
+                }
+            }
+
+            foreach (ComboBox cb in this.Controls.OfType<ComboBox>()) {
+                if ( cb == comboBox1 || cb == comboBox2 ) continue;
+                if ( cb.Text == "" ) {
+                    MessageBox.Show("Polje " + cb.Name + " je ostalo prazno.");
+                    return;
+                }
+            }
+
             string[] uce = new string[] {
                 this.Ime.Text,
                 this.PrezIme.Text,
                 this.Odeljenje.Text,
                 this.Škola.Text,
                 this.Jezik.Text,
+                this.Smer.Text,
                 this.PrviPredmet.Text,
                 this.DrugiPredmet.Text,
                 this.TreciPredmet.Text,
@@ -309,6 +333,7 @@ namespace WinFormsApp4 {
         }
 
         private void importToolStripMenuItem_Click(object sender, EventArgs e) {
+            dataGridView1.Rows.Clear();
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Comma Separated Values (*.csv)|*.csv";
             dialog.ShowDialog();
@@ -316,9 +341,16 @@ namespace WinFormsApp4 {
                 StreamReader reader = new StreamReader(dialog.OpenFile());
                 while ( !reader.EndOfStream ) {
                     string line = reader.ReadLine();
+                    Console.WriteLine(line);
+                    if ( line.Split(";").Length < 10 ) {
+                        MessageBox.Show("Podaci su u pogrešnom formatu.");
+                        dataGridView1.Rows.Clear();
+                        clearToolStripMenuItem_Click(sender, e);
+                        return;
+                    }
                     dataGridView1.Rows.Add(line.Split(";"));
                 }
-            } catch {}
+            } catch ( FileNotFoundException ) { }
         }
 
         private void exportToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -372,6 +404,20 @@ namespace WinFormsApp4 {
             comboBox1.Items.Clear();
             comboBox1.Refresh();
             templates.Clear();
+        }
+
+        private void button3_MouseHover(object sender, EventArgs e) {
+            if ( !((Button)sender).Enabled ) return;
+            ((Button)sender).BackColor = Color.IndianRed;
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e){
+            ((Button)sender).BackColor = Color.Transparent;
+        }
+
+        private void resetujTabeluToolStripMenuItem_Click(object sender, EventArgs e) {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
         }
     }
 }
