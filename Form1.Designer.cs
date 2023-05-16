@@ -29,10 +29,11 @@ namespace WinFormsApp4
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.PrezIme = new System.Windows.Forms.TextBox();
             this.Odeljenje = new System.Windows.Forms.TextBox();
-            this.Skola = new System.Windows.Forms.TextBox();
+            this.Škola = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ucenikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +45,9 @@ namespace WinFormsApp4
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.existingFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetujPodatkeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetujTabeluToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetujSabloneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -102,14 +106,14 @@ namespace WinFormsApp4
             this.Odeljenje.Enter += new System.EventHandler(this.placeholderTextEn);
             this.Odeljenje.Leave += new System.EventHandler(this.placeholderTextLe);
             // 
-            // Skola
+            // Škola
             // 
-            this.Skola.Location = new System.Drawing.Point(544, 196);
-            this.Skola.Name = "Skola";
-            this.Skola.Size = new System.Drawing.Size(379, 23);
-            this.Skola.TabIndex = 1;
-            this.Skola.Enter += new System.EventHandler(this.placeholderTextEn);
-            this.Skola.Leave += new System.EventHandler(this.placeholderTextLe);
+            this.Škola.Location = new System.Drawing.Point(544, 196);
+            this.Škola.Name = "Škola";
+            this.Škola.Size = new System.Drawing.Size(379, 23);
+            this.Škola.TabIndex = 1;
+            this.Škola.Enter += new System.EventHandler(this.placeholderTextEn);
+            this.Škola.Leave += new System.EventHandler(this.placeholderTextLe);
             // 
             // comboBox1
             // 
@@ -142,20 +146,20 @@ namespace WinFormsApp4
             this.exportToolStripMenuItem});
             this.ucenikToolStripMenuItem.Name = "ucenikToolStripMenuItem";
             this.ucenikToolStripMenuItem.Size = new System.Drawing.Size(58, 18);
-            this.ucenikToolStripMenuItem.Text = "Ucenici";
+            this.ucenikToolStripMenuItem.Text = "Učenici";
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.importToolStripMenuItem.Text = "Import";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.importToolStripMenuItem.Text = "Učitaj";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.exportToolStripMenuItem.Text = "Export";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.exportToolStripMenuItem.Text = "Sačuvaj";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // templateToolStripMenuItem
@@ -164,14 +168,14 @@ namespace WinFormsApp4
             this.loadTemplateFileToolStripMenuItem,
             this.saveTemplateToolStripMenuItem});
             this.templateToolStripMenuItem.Name = "templateToolStripMenuItem";
-            this.templateToolStripMenuItem.Size = new System.Drawing.Size(69, 18);
-            this.templateToolStripMenuItem.Text = "Template";
+            this.templateToolStripMenuItem.Size = new System.Drawing.Size(55, 18);
+            this.templateToolStripMenuItem.Text = "Šablon";
             // 
             // loadTemplateFileToolStripMenuItem
             // 
             this.loadTemplateFileToolStripMenuItem.Name = "loadTemplateFileToolStripMenuItem";
-            this.loadTemplateFileToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.loadTemplateFileToolStripMenuItem.Text = "Load Template File";
+            this.loadTemplateFileToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.loadTemplateFileToolStripMenuItem.Text = "Učitaj šablone";
             this.loadTemplateFileToolStripMenuItem.Click += new System.EventHandler(this.loadTemplateFileToolStripMenuItem_Click);
             // 
             // saveTemplateToolStripMenuItem
@@ -180,33 +184,57 @@ namespace WinFormsApp4
             this.newFileToolStripMenuItem,
             this.existingFileToolStripMenuItem});
             this.saveTemplateToolStripMenuItem.Name = "saveTemplateToolStripMenuItem";
-            this.saveTemplateToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.saveTemplateToolStripMenuItem.Text = "Save Template";
+            this.saveTemplateToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.saveTemplateToolStripMenuItem.Text = "Sačuvaj šablone...";
             // 
             // newFileToolStripMenuItem
             // 
             this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
-            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.newFileToolStripMenuItem.Text = "New File";
+            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newFileToolStripMenuItem.Text = "U novi fajl";
             this.newFileToolStripMenuItem.Click += new System.EventHandler(this.newFileToolStripMenuItem_Click);
             // 
             // existingFileToolStripMenuItem
             // 
             this.existingFileToolStripMenuItem.Name = "existingFileToolStripMenuItem";
-            this.existingFileToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.existingFileToolStripMenuItem.Text = "Existing File";
+            this.existingFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.existingFileToolStripMenuItem.Text = "U postojeći fajl";
             this.existingFileToolStripMenuItem.Click += new System.EventHandler(this.existingFileToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
             // 
+            this.clearToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resetujPodatkeToolStripMenuItem,
+            this.resetujTabeluToolStripMenuItem,
+            this.resetujSabloneToolStripMenuItem});
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(46, 18);
-            this.clearToolStripMenuItem.Text = "Clear";
-            this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(47, 18);
+            this.clearToolStripMenuItem.Text = "Reset";
+            // 
+            // resetujPodatkeToolStripMenuItem
+            // 
+            this.resetujPodatkeToolStripMenuItem.Name = "resetujPodatkeToolStripMenuItem";
+            this.resetujPodatkeToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.resetujPodatkeToolStripMenuItem.Text = "Resetuj podatke";
+            this.resetujPodatkeToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
+            // 
+            // resetujTabeluToolStripMenuItem
+            // 
+            this.resetujTabeluToolStripMenuItem.Name = "resetujTabeluToolStripMenuItem";
+            this.resetujTabeluToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.resetujTabeluToolStripMenuItem.Text = "Resetuj tabelu";
+            // 
+            // resetujSabloneToolStripMenuItem
+            // 
+            this.resetujSabloneToolStripMenuItem.Name = "resetujSabloneToolStripMenuItem";
+            this.resetujSabloneToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.resetujSabloneToolStripMenuItem.Text = "Resetuj šablone";
+            this.resetujSabloneToolStripMenuItem.Click += new System.EventHandler(this.resetujSabloneToolStripMenuItem_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Lime;
             this.label5.Location = new System.Drawing.Point(544, 344);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 15);
@@ -216,6 +244,7 @@ namespace WinFormsApp4
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Lime;
             this.label4.Location = new System.Drawing.Point(544, 315);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 15);
@@ -225,6 +254,7 @@ namespace WinFormsApp4
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Lime;
             this.label3.Location = new System.Drawing.Point(544, 286);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 15);
@@ -234,6 +264,7 @@ namespace WinFormsApp4
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Lime;
             this.label2.Location = new System.Drawing.Point(544, 257);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 15);
@@ -243,6 +274,7 @@ namespace WinFormsApp4
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Lime;
             this.label1.Location = new System.Drawing.Point(544, 228);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 15);
@@ -301,13 +333,14 @@ namespace WinFormsApp4
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.IndianRed;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(892, 482);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Dodaj";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Ime
@@ -323,6 +356,17 @@ namespace WinFormsApp4
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn10,
@@ -333,11 +377,11 @@ namespace WinFormsApp4
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16,
             this.dataGridViewTextBoxColumn17});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 36);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(517, 480);
+            this.dataGridView1.Size = new System.Drawing.Size(517, 469);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
@@ -361,7 +405,7 @@ namespace WinFormsApp4
             // 
             // dataGridViewTextBoxColumn12
             // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "Skola";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Škola";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
@@ -451,42 +495,47 @@ namespace WinFormsApp4
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.IndianRed;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(782, 482);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 23);
             this.button2.TabIndex = 2;
             this.button2.Text = "Uredi";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.IndianRed;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(672, 482);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(104, 23);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Izbrisi";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Text = "Izbriši";
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.IndianRed;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Location = new System.Drawing.Point(766, 148);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(230, 23);
             this.button4.TabIndex = 8;
-            this.button4.Text = "Dodaj template";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Text = "Dodaj šablon";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 518);
+            this.BackColor = System.Drawing.Color.DarkRed;
+            this.ClientSize = new System.Drawing.Size(1008, 517);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
@@ -500,7 +549,7 @@ namespace WinFormsApp4
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Odeljenje);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Skola);
+            this.Controls.Add(this.Škola);
             this.Controls.Add(this.TreciPredmet);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.PrviPredmet);
@@ -546,7 +595,7 @@ namespace WinFormsApp4
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox PrezIme;
         private System.Windows.Forms.TextBox Odeljenje;
-        private System.Windows.Forms.TextBox Skola;
+        private System.Windows.Forms.TextBox Škola;
         private System.Windows.Forms.TextBox Ime;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox TreciPredmet;
@@ -575,6 +624,10 @@ namespace WinFormsApp4
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ToolStripMenuItem resetujPodatkeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetujTabeluToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetujSabloneToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
@@ -583,7 +636,6 @@ namespace WinFormsApp4
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.Button button4;
     }
 }
 
