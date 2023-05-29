@@ -342,13 +342,13 @@ namespace WinFormsApp4 {
                 while ( !reader.EndOfStream ) {
                     string line = reader.ReadLine();
                     Console.WriteLine(line);
-                    if ( line.Split(";").Length < 10 ) {
+                    if ( line.Split(';').Length < 10 ) {
                         MessageBox.Show("Podaci su u pogrešnom formatu.");
                         dataGridView1.Rows.Clear();
                         clearToolStripMenuItem_Click(sender, e);
                         return;
                     }
-                    dataGridView1.Rows.Add(line.Split(";"));
+                    dataGridView1.Rows.Add(line.Split(';'));
                 }
             } catch ( FileNotFoundException ) { }
         }

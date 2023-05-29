@@ -14,7 +14,6 @@ namespace WinFormsApp4
         [STAThread]
         static void Main()
         {
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
@@ -29,7 +28,7 @@ namespace WinFormsApp4
         }
 
         public Template( string csvText ) {
-            string[] parsovan = csvText.Split(";");
+            string[] parsovan = csvText.Split(';');
             this.ime = parsovan[0];
             for ( int i = 1; i < 8; i++ )
                 this.attr[i - 1] = parsovan[i] == "null" ? "" : parsovan[i];
